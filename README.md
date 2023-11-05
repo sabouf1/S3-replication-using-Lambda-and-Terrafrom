@@ -1,76 +1,38 @@
----
+AWS Lambda S3 Replication Project
 
-AWS Lambda S3 File Transfer Project
+Overview:
+This project creates a system to replicate files from a source S3 bucket to a destination S3 bucket automatically using AWS Lambda. Whenever a new file is uploaded to the source bucket, it triggers a Lambda function that replicates the file to the destination bucket.
 
-This project sets up an AWS environment using Terraform to automatically transfer files from a source S3 bucket to a destination S3 bucket using an AWS Lambda function.
+Files Description:
 
-Project Structure:
+variables.tf: Declares variables for AWS credentials and region.
+terraform.tfvars: Sets the values for the declared variables.
+main.tf: Contains the Terraform configuration for AWS resources including S3 buckets, IAM role, and Lambda function.
+output.tf: Defines the output for the Terraform setup, such as the ARN of the Lambda function.
+index.zip: The Lambda function code that needs to be uploaded to the task_10119_lambda folder.
+Setup Process:
 
-- variables.tf - Declaration of variables used in Terraform configurations
-- terraform.tfvars - Variable values for Terraform configurations
-- main.tf - Main Terraform configuration file defining AWS resources
-- output.tf - Output file for the Terraform configurations
-- index.zip - Zipped file containing the Lambda function code
-
-Prerequisites:
-
-- AWS Account
-- Terraform installed on your system
-- Visual Studio Code or any IDE for editing code files
-- AWS CLI configured (optional)
-
-Setup Instructions:
-
-Task 1: AWS Management Console Access
-1. Sign in to the AWS Management Console.
-2. Ensure the region is set to US East (N. Virginia) us-east-1.
-
-Task 2: Visual Studio Code Setup
-1. Install and open Visual Studio Code.
-2. Set up the Terminal and navigate to the project folder.
-
-Task 3: Terraform Variable Configuration
-1. Create variables.tf and terraform.tfvars with necessary AWS credentials and region information.
-
-Task 4: S3 Buckets Configuration
-1. Define two S3 buckets in main.tf.
-
-Task 5: IAM Role and Policy
-1. Set up an IAM role and policy for Lambda to access S3 buckets in main.tf.
-
-Task 6: Lambda Function
-1. Add the Lambda function configuration in main.tf.
-
-Task 7: Lambda Trigger
-1. Configure the S3 to Lambda trigger in main.tf.
-
-Task 8: Outputs Configuration
-1. Define outputs such as the Lambda ARN in output.tf.
-
-Task 9: Terraform Initialization and Application
-1. Initialize Terraform and apply the configurations.
-
-Task 10: AWS Resource Validation
-1. Validate the resources created through the AWS Management Console.
-
-Task 11: Lambda Function Testing
-1. Test the Lambda function by uploading a file to the source S3 bucket.
-
-Task 12: Resource Cleanup
-1. Destroy the Terraform-managed resources when done.
-
+Configure AWS Management Console with the specified region.
+Setup Visual Studio Code and open the project folder.
+Define AWS credentials and desired region in variables.tf and terraform.tfvars.
+Create main.tf with S3 bucket details and Lambda function configuration.
+Implement IAM role and policies in main.tf for Lambda function access to S3 buckets.
+Set up Lambda function trigger for the source S3 bucket in main.tf.
+Use output.tf to retrieve the Lambda function ARN.
+Initialize and apply Terraform configurations to create the AWS resources.
+Verify the creation of resources in AWS Management Console.
+Test the replication by uploading a file to the source bucket and checking the destination bucket.
+Destroy the resources using Terraform to prevent further charges.
 Testing:
-To test the setup, upload a file to the source S3 bucket and check if it appears in the destination S3 bucket.
+Upload a file to the source S3 bucket and verify its presence in the destination S3 bucket to confirm the setup works as intended.
 
 Cleanup:
-Run terraform destroy to clean up all resources once testing is complete to avoid unnecessary charges.
+Execute 'terraform destroy' to remove all resources and avoid incurring costs.
 
 Conclusion:
-By completing this lab, you've successfully automated file transfers between S3 buckets using AWS Lambda.
+The project demonstrates an automated setup for S3 bucket replication using Terraform and AWS Lambda.
 
 End Lab:
-Sign out of the AWS account and end the lab session from your dashboard.
+Remember to sign out of the AWS account and end your lab session appropriately.
 
-For a detailed step-by-step guide, refer to the Lab Steps section in this document.
-
----
+This text provides an overview and step-by-step guide on what the project does and how to set it up, test, and clean up after use.
